@@ -9,7 +9,7 @@ function Login() {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
-  const [showPassword, setShowPassword] = useState(false);
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
 
   const onSubmit = (data) => {
     console.log(data);
@@ -17,7 +17,7 @@ function Login() {
   };
 
   const handleShowPassword = () => {
-    setShowPassword(!showPassword);
+    setShowLoginPassword(!showLoginPassword);
   };
 
   return (
@@ -65,14 +65,14 @@ function Login() {
             <input
               {...register("password", { required: true })}
               placeholder="Enter"
-              type={showPassword ? "text" : "password"}
+              type={showLoginPassword ? "text" : "password"}
               className=" border-[#C1C1C1] w-full rounded-[6px] border pb-[14px] pt-[15px] pl-[16px]  "
             />
             <p
               onClick={handleShowPassword}
-              className=" absolute font-normal text-[16px] leading-[19.36px] text-[#000000] underline right-[14.4px] bottom-4 "
+              className=" absolute font-normal text-[16px] leading-[19.36px] text-[#000000] underline right-[14.4px] bottom-4 cursor-pointer "
             >
-              Show
+              {showLoginPassword ? "Hide" : "Show"}
             </p>
 
             {errors.password && (

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -8,10 +9,15 @@ function Signup() {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
+  const [showSignupPassword, setShowSignupPassword] = useState(false);
 
   const onSubmit = (data) => {
     console.log(data);
     navigate("/verify");
+  };
+
+  const handleShowPassword = () => {
+    setShowSignupPassword(!showSignupPassword);
   };
 
   return (
@@ -59,16 +65,23 @@ function Signup() {
             )}
           </div>
 
-          <div className="flex flex-col gap-[7px] ">
+          <div className=" relative flex flex-col gap-[7px] ">
             <label className="font-normal text-[16px] leading-[19.36px] text-[#000000] ">
               Password
             </label>
             <input
               {...register("password", { required: true })}
               placeholder="Enter"
-              type="password"
+              type={showSignupPassword ? "text" : "password"}
               className=" border-[#C1C1C1] w-full rounded-[6px] border pb-[14px] pt-[15px] pl-[16px]  "
             />
+
+            <p
+              onClick={handleShowPassword}
+              className=" absolute font-normal text-[16px] leading-[19.36px] text-[#000000] underline right-[14.4px] bottom-4 cursor-pointer "
+            >
+              {showSignupPassword ? "Hide" : "Show"}
+            </p>
 
             {errors.password && (
               <p className="text-red-600 before:content-['⚠-'] ">
