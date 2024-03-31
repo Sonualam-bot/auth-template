@@ -5,6 +5,7 @@ import { Suspense, lazy } from "react";
 const Signup = lazy(() => import("./components/auth/Signup"));
 const Navbar = lazy(() => import("./components/Navbar"));
 const Verify = lazy(() => import("./components/auth/Verify"));
+const Login = lazy(() => import("./components/auth/Login"));
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Signup />} />
             <Route path="/verify" element={<Verify />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </Suspense>
       </Router>
