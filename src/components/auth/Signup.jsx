@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const {
@@ -6,9 +7,11 @@ function Signup() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+    console.log(data);
+    navigate("/verify");
   };
 
   return (
@@ -77,7 +80,7 @@ function Signup() {
           <input
             type="submit"
             value="Create account"
-            className=" w-full bg-[#000000] text-[#FFFFFF] rounded-[6px] border border-[#000000] px-[148px] py-[18px] uppercase font-medium text-[16px] leading-[19.36px]  tracking-[2px] cursor-pointer transition ease-in-out duration-150 hover:bg-[#0c0b0b]  "
+            className=" w-full bg-[#000000] text-[#FFFFFF] rounded-[6px] border border-[#000000] m-auto py-[18px] uppercase font-medium text-[16px] leading-[19.36px]  tracking-[2px] cursor-pointer transition ease-in-out duration-150 hover:bg-[#0c0b0b]  "
           />
         </form>
         <p className="m-auto font-normal text-[16px] leading-[19.36px] text-[#333333] ">
