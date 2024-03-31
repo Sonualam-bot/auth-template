@@ -1,5 +1,6 @@
 import { CiSearch } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -10,9 +11,12 @@ function Navbar() {
         <h3 className="cursor-pointer">Hi, John</h3>
       </div>
       <div className=" w-full flex justify-between items-center ">
-        <h1 className=" font-bold text-[32px] leading-[38.73px] text-[#000000] pl-[40px] pt-[7px] pb-[18px]  ">
+        <Link
+          to="/"
+          className=" font-bold text-[32px] leading-[38.73px] text-[#000000] pl-[40px] pt-[7px] pb-[18px]  "
+        >
           ECOMMERCE
-        </h1>
+        </Link>
         <div className="flex gap-[32px] font-semibold text-[16px] leading-[19.36px] text-[#000000]  ">
           <p className="cursor-pointer">Categories</p>
           <p className="cursor-pointer">Sale</p>
